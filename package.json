@@ -1,7 +1,7 @@
 {
   "name": "@ladjs/koa-simple-ratelimit",
   "description": "Fork of koa-simple-ratelimit with better tests and options.  Simple Rate limiter middleware for koa v2",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "author": "Scott Cooper <scttcper@gmail.com>",
   "ava": {
     "serial": true
