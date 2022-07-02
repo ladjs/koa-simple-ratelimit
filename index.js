@@ -1,5 +1,9 @@
+const { debuglog } = require('util');
+
 const ms = require('ms');
-const debug = require('debug')('@ladjs/koa-simple-ratelimit');
+const multimatch = require('multimatch');
+
+const debug = debuglog('@ladjs/koa-simple-ratelimit');
 
 function ratelimit(options) {
   const opts = {
@@ -18,6 +22,7 @@ function ratelimit(options) {
     },
     errorMessage: (exp) =>
       `Rate limit exceeded, retry in ${ms(exp, { long: true })}.`,
+    ignoredPathGlobs: [],
     ...options
   };
   const {
@@ -28,6 +33,15 @@ function ratelimit(options) {
 
   // eslint-disable-next-line func-names
   return async function rateLimitMiddleware(ctx, next) {
+    // check against ignored/whitelisted paths
+    if (
+      Array.isArray(opts.ignoredPathGlobs) &&
+      opts.ignoredPathGlobs.length > 0
+    ) {
+      const match = multimatch(ctx.path, opts.ignoredPathGlobs);
+      if (Array.isArray(match) && match.length > 0) return next();
+    }
+
     const id = opts.id(ctx);
 
     if (id === false) {

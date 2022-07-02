@@ -1,7 +1,6 @@
 # [**@ladjs/koa-simple-ratelimit**](https://github.com/ladjs/koa-simple-ratelimit)
 
-[![build status](https://img.shields.io/travis/ladjs/koa-simple-ratelimit.svg)](https://travis-ci.org/ladjs/koa-simple-ratelimit)
-[![code coverage](https://img.shields.io/codecov/c/github/ladjs/koa-simple-ratelimit.svg)](https://codecov.io/gh/ladjs/koa-simple-ratelimit)
+[![build status](https://github.com/ladjs/koa-simple-ratelimit/actions/workflows/ci.yml/badge.svg)](https://github.com/ladjs/koa-simple-ratelimit/actions/workflows/ci.yml)
 [![code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![made with lass](https://img.shields.io/badge/made_with-lass-95CC28.svg)](https://lass.js.org)
@@ -68,6 +67,7 @@ module.exports = app;
 * `logger` (Function) a logger to log database errors with (to prevent app middleware requests from failing due to database connection issues) - set this value to `false` to disable the logger output
 * `headers` (Object) containing keys `remaining`, `reset`, and `total` which set the headers on the HTTP request to `X-RateLimit-Remaining`, `X-RateLimit-Reset`, and `X-RateLimit-Limit` by default respectively
 * `errorMessage` (Function) a function accepting an argument `exp` which is the number of milliseconds until limitation expiry (see code for default)
+* `ignoredPathGlobs` (Array) defaults to an empty Array, but you can pass an Array of glob paths to ignore
 
 
 ## Responses
