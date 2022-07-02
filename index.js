@@ -134,7 +134,7 @@ function ratelimit(options) {
     ctx.status = 429;
     ctx.body =
       typeof opts.errorMessage === 'function'
-        ? opts.errorMessage(expires)
+        ? opts.errorMessage(expires, ctx)
         : opts.errorMessage;
 
     if (opts.throw) {

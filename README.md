@@ -66,7 +66,7 @@ module.exports = app;
 * `blocklist` (Array) an array of ids to blocklist (defaults to `[]`)
 * `logger` (Function) a logger to log database errors with (to prevent app middleware requests from failing due to database connection issues) - set this value to `false` to disable the logger output
 * `headers` (Object) containing keys `remaining`, `reset`, and `total` which set the headers on the HTTP request to `X-RateLimit-Remaining`, `X-RateLimit-Reset`, and `X-RateLimit-Limit` by default respectively
-* `errorMessage` (Function) a function accepting an argument `exp` which is the number of milliseconds until limitation expiry (see code for default)
+* `errorMessage` (Function) a function accepting an argument `exp` which is the number of milliseconds until limitation expiry (see code for default) – it also accepts a second argument of `ctx`
 * `ignoredPathGlobs` (Array) defaults to an empty Array, but you can pass an Array of glob paths to ignore
 
 
