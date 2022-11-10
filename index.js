@@ -7,6 +7,7 @@ const debug = debuglog('@ladjs/koa-simple-ratelimit');
 
 function ratelimit(options) {
   const opts = {
+    db: false,
     max: 2500,
     duration: 3_600_000,
     throw: false,
@@ -25,6 +26,9 @@ function ratelimit(options) {
     ignoredPathGlobs: [],
     ...options
   };
+
+  if (!opts.db) throw new Error('Redis connection instance missing');
+
   const {
     remaining = 'X-RateLimit-Remaining',
     reset = 'X-RateLimit-Reset',

@@ -57,6 +57,7 @@ module.exports = app;
 
 ## Options
 
+* `db` (Object) Redis connection instance **required**
 * `max` (Number) number of max requests within `duration` (defaults to `2500`)
 * `duration` (Number) duration of limit in milliseconds (defaults to `3600000`)
 * `throw` (Boolean) whether or not to throw an error with `ctx.throw` (defaults to `false`)
