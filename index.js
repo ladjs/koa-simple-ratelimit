@@ -37,9 +37,6 @@ function ratelimit(options) {
 
   // eslint-disable-next-line func-names
   return async function rateLimitMiddleware(ctx, next) {
-    // if we have alleviated API rate limitations due to secret passed
-    if (ctx.isAPISecretAuthenticated) return next();
-
     // check against ignored/whitelisted paths
     if (
       Array.isArray(opts.ignoredPathGlobs) &&

@@ -14,7 +14,6 @@
 * [Install](#install)
 * [Example](#example)
 * [Options](#options)
-* [Alleviate Rate Limit](#alleviate-rate-limit)
 * [Responses](#responses)
 * [License](#license)
 
@@ -70,11 +69,6 @@ module.exports = app;
 * `headers` (Object) containing keys `remaining`, `reset`, and `total` which set the headers on the HTTP request to `X-RateLimit-Remaining`, `X-RateLimit-Reset`, and `X-RateLimit-Limit` by default respectively
 * `errorMessage` (Function) a function accepting an argument `exp` which is the number of milliseconds until limitation expiry (see code for default) – it also accepts a second argument of `ctx`
 * `ignoredPathGlobs` (Array) defaults to an empty Array, but you can pass an Array of glob paths to ignore
-
-
-## Alleviate Rate Limit
-
-If you have an API endpoint that has authenticated via a secret shared amongst your servers, you can set `ctx.isAPISecretAuthenticated = true;` to alleviate rate limitations.
 
 
 ## Responses
